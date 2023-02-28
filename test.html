@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@800&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Rubik:wght@800&display=swap" rel="stylesheet">
+  <style>
+    body{
+        font-family: 'Poppins', sans-seri;
+        font-weight: 1000;
+        font-size: 20px;
+    }
+   #navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+}
+
+.nav-logo img {
+  height: 40px;
+}
+
+.nav-search input {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  width: 200px;
+  outline: none;
+}
+
+.nav-profile-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+.profile {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+  position: absolute;
+  z-index: 1;
+  width: 200px; /* or whatever width you prefer */
+  right: 0; /* align to the left */
+}
+
+
+.dropdown-content a {
+  color: black;
+  background-color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/*  */
+
+.question-container {
+  /* border: 1px solid black; */
+  border: 2px solid #dbdbdb; /* adds a 1 pixel solid border */
+ box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* adds a box-shadow */
+  padding: 10px 10px 10px 10px;
+  width: calc(100% - 20px);
+}
+
+.question-container h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bolder; 
+}
+
+.answer-option {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.option-border {
+  border: 2px solid #dbdbdb;
+  padding: 5px;
+}
+
+.selected-option {
+  border-color: green;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .option-border {
+  border-color: black;
+  background-color: grey;
+}
+
+.blockname{ 
+    color: #ffffff;
+    background-color: #a7e7f1;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border: 2px solid #f4f4f4; 
+    border-radius: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 0;   
+}
+.subjectname{ 
+    color: #ffffff;
+    background-color: #9580ff;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border: 2px solid #f4f4f4; 
+    border-radius: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 0;   
+}
+.lecturename{ 
+    color: #ffffff;
+    background-color: #ff673e;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border: 2px solid #f4f4f4; 
+    border-radius: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 0;   
+}
+
+
+.first_tagdiv{
+    text-align: right;
+    display: block;
+    float: right;
+    padding: 10px;
+  
+}
+.first_tag{
+    color: #a6a6a6;
+    background-color: #f4f4f4;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border: 2px solid #f4f4f4; 
+    border-radius: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 0;  
+    
+}
+.second_tag{
+    color: #a6a6a6;
+    background-color: #f4f4f4;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border: 2px solid #f4f4f4; 
+  border-radius: 50px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 0;
+}
+.astyle{
+    color: #3e3e3e;
+    background-color: #f9f9f9;
+    display: inline-block;
+    font-family: 'Rubik', sans-serif;
+
+    margin: -3px;
+    padding: 2px 5px 3px 5px;
+    font-weight: bolder;
+    border: 2px solid #dbdbdb;
+    border-radius: 90px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+}
+.button {
+    background: linear-gradient(to bottom, #dbdbdb, #dbdbdb); /* creates a gradient background */
+    border: none; /* removes the border */
+    border-radius: 8px; /* adds a border-radius of 8 pixels */
+    color: black; /* sets the text color to white */
+    cursor: pointer; /* sets the cursor to a pointer on hover */
+    font-size: 16px; /* sets the font size to 16 pixels */
+    padding: 12px 24px; /* adds padding of 12 pixels on top and bottom, and 24 pixels on the sides */
+    text-align: center; /* centers the text horizontally */
+    text-decoration: none; /* removes the underline */
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.25); /* adds a text shadow */
+  }
+  </style>
+</head>
+<body>
+    <!-- <nav id="navbar">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <img src="512.png" alt="Logo">
+          </div>
+          <div class="nav-search">
+            <input type="text" placeholder="Search">
+          </div>
+
+          <div class="nav-profile">
+            
+              <div class="dropdown">
+                  <button class="dropbtn"><div class="nav-profile-circle"></div></button>
+                  <div class="dropdown-content">
+                <a href="#">Edit Profile</a>
+                <a href="#">Change Password</a>
+                <a href="#">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav> -->
+<!-- Questions -->
+          <div class="question-container">
+              <h2>2) Which of the following is a fruit?</h2>
+              <div class=""><p class="blockname">Surger</p>/<p class="subjectname">Fracture</p>/<p class="lecturename">Last lecture</p></div>
+            <form>
+              <label class="answer-option">
+                <input type="radio" name="fruit" value="carrot" onclick="showColor(this)">
+                <div class="option-border">
+                 <span class="astyle">A</span>&nbsp;&nbsp; or whatever width you prefe or whatever width you prefe Carrot
+                </div>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="fruit" value="apple" onclick="showColor(this)">
+                <div class="option-border">
+                    <span class="astyle">B</span>&nbsp;&nbsp; Apple
+                </div>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="fruit" value="potato" onclick="showColor(this)">
+                <div class="option-border">
+                    <span class="astyle">C</span>&nbsp;&nbsp; Potato
+                </div>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="fruit" value="broccoli" onclick="showColor(this)">
+                <div class="option-border">
+                    <span class="astyle">D</span>&nbsp;&nbsp; Broccoli
+                </div>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="fruit" value="steak" onclick="showColor(this)">
+                <div class="option-border">
+                    <span class="astyle">E</span>&nbsp;&nbsp; Steak
+                </div>
+              </label>
+              <button class="button">Check</button>
+             <div class="first_tagdiv"><p class="first_tag">#In_lectures</p><p class="second_tag">#Easy</p></div>
+            </form>
+          </div>
+      
+  <script>
+   window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("navbar").classList.add("scrolled");
+  } else {
+    document.getElementById("navbar").classList.remove("scrolled");
+  }
+}
+// Code to close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.style.display === 'block') {
+        openDropdown.style.display = 'none';
+      }
+    }
+  }
+}
+function showColor(selectedOption) {
+  const answerOptions = document.getElementsByName('fruit');
+
+  for (let i = 0; i < answerOptions.length; i++) {
+    answerOptions[i].parentNode.classList.remove('selected-option');
+  }
+
+  selectedOption.parentNode.classList.add('selected-option');
+}
+
+
+
+  </script>
+
+</body>
+</html>
