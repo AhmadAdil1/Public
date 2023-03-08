@@ -1,0 +1,287 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Set a high z-index to make sure the nav is on top of other elements */
+  background-color: #fff;
+  border-bottom: 2px solid #EDEFF4;
+  /* padding: 10px 20px; */
+  padding: 10px 10px 0px 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  flex-direction: row;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 10px;
+  /* justify-content: center; */
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+.links {
+  display: none;
+}
+
+.links.show-menu {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 0px;
+  height: 100vh;
+  width: 25%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #b7b4b4;
+  z-index: 999;
+
+}
+
+.links.show-menu li {
+  margin: 20px 0;
+}
+
+.links.show-menu a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+
+}
+
+.links.show-menu a:hover {
+  color: #000000;
+  font-weight: bolder;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: #333;
+}
+
+
+.links li {
+  margin-right: 20px;
+  list-style: none; /* Remove the default bullet points */
+}
+
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.links li a {
+  font-size: 20px; /* Increase font size */
+  text-decoration: none; /* Remove underline */
+  position: relative; /* Create relative positioning for the underline */
+  /* border: 1px solid #ccc; */
+  color: #000000;
+
+
+}
+
+.links li a:hover {
+  color: #000000;
+  font-weight: bolder; /* Change text color on hover */
+}
+
+.links li a:hover::after {
+  content: ""; /* Create an empty element for the underline */
+  display: block; /* Set the element as a block */
+  width: 100%; /* Set the width to 100% */
+  height: 2px; /* Set the height of the underline */
+  background-color: #C7F14D; /* Set the color of the underline */
+  position: absolute; /* Position the underline relative to the link */
+  bottom: -5px; /* Position the underline below the link */
+  left: 0; /* Position the underline to the left of the link */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.search-bar button[type="submit"] {
+  background-color: #6FBBFF;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.profile-circle {
+    margin-left: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Set a high z-index to make sure the nav is on top of other elements */
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  height: 60px;
+  flex-direction: row;
+}
+  .menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  background-color: #ccc;
+  z-index: 9998;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+
+  .menu-toggle {
+    display: block;
+  }
+  
+  .links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+  }
+  
+  .links li {
+    margin: 10px 0;
+  }
+  
+  .links a {
+    color: #000000;
+    font-weight: bold;
+
+  }
+  
+  .links a:hover {
+    color: #000000;
+  font-weight: bolder;
+
+  }
+  
+  .menu-toggle.active + .links {
+    display: flex;
+  }
+  
+  .search-bar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .search-bar input[type="text"] {
+    width: 100%;
+  }
+  .logo {
+  font-size: 24px;
+  font-weight: bold;
+  
+}
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <div class="logo"><img style="height: 60px; width:60px;" src="512.png"></div>
+        <ul class="links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Add question</a></li>
+          <li><a href="#">Results</a></li>
+          <li><a href="#">feedback</a></li>
+        </ul>
+        <div class="search-bar">
+          <input type="text" placeholder="Search...">
+          <button type="submit">Go</button>
+        </div>
+        <div class="profile-circle"></div>
+      </nav>
+      
+<script>
+
+const menuToggle = document.getElementById('menu-toggle');
+const links = document.querySelector('.links');
+
+document.addEventListener("click", function(event) {
+  if (event.target.closest(".links") === null && event.target.closest(".menu-toggle") === null && links.classList.contains("show-menu")) {
+    links.classList.remove("show-menu");
+    console.log("menu closed");
+  }
+});
+
+document.getElementById("menu-toggle").addEventListener("click", function() {
+  var links = document.querySelector(".links");
+  if (links.classList.contains("show-menu")) {
+    links.classList.remove("show-menu");
+  } else {
+    links.classList.add("show-menu");
+  }
+});
+
+
+
+
+//   const menuToggle = document.getElementById('menu-toggle');
+// const links = document.querySelector('.links');
+
+// // menuToggle.addEventListener('click', () => {
+// //   links.classList.toggle('show-menu');
+// // });
+
+// document.getElementById("menu-toggle").addEventListener("click", function() {
+//   var links = document.querySelector(".links");
+//   if (links.classList.contains("show-menu")) {
+//     links.classList.remove("show-menu");
+//   } else {
+//     links.classList.add("show-menu");
+//   }
+// });
+
+</script>
+      
+  </body>
