@@ -1,0 +1,761 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@800&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Rubik:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="xxxxxx" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/93459ecc04.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/93459ecc04.css" crossorigin="anonymous">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>   
+<style>
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Set a high z-index to make sure the nav is on top of other elements */
+  background-color: #fff;
+  border-bottom: 2px solid #EDEFF4;
+  /* padding: 10px 20px; */
+  padding: 10px 10px 0px 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  flex-direction: row;
+}
+
+.logo {
+  /* padding-right: 130px; */
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 10px;
+  /* justify-content: center; */
+}
+
+.menu-toggle {
+  display: block;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.desktoplinks{
+  /* display: none; */
+  display: flex;
+  align-items: center;
+}
+
+.desktoplinks li {
+  margin-right: 20px;
+  list-style: none; /* Remove the default bullet points */
+}
+
+.desktoplinks li a {
+  font-size: 20px; /* Increase font size */
+  text-decoration: none; /* Remove underline */
+  position: relative; /* Create relative positioning for the underline */
+  /* border: 1px solid #ccc; */
+  color: #000000;
+
+
+}
+
+.desktoplinks li a:hover {
+  color: #000000;
+  font-weight: bolder; /* Change text color on hover */
+}
+
+.desktoplinks li a:hover::after {
+  content: ""; /* Create an empty element for the underline */
+  display: block; /* Set the element as a block */
+  width: 100%; /* Set the width to 100% */
+  height: 2px; /* Set the height of the underline */
+  background-color: #C7F14D; /* Set the color of the underline */
+  position: absolute; /* Position the underline relative to the link */
+  bottom: -5px; /* Position the underline below the link */
+  left: 0; /* Position the underline to the left of the link */
+}
+
+.links {
+  display: none;
+}
+
+.links.show-menu {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: initial;
+  padding-top: 10px;
+  padding-left: 0px;
+  height: 100vh;
+  width: 25%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 999;
+
+}
+
+.links.show-menu li {
+  margin: 20px 10px;
+}
+
+.links.show-menu a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+
+}
+
+.links.show-menu a:hover {
+  color: #000000;
+  font-weight: bolder;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: #333;
+}
+
+
+.links li {
+  margin-right: 20px;
+  list-style: none; /* Remove the default bullet points */
+}
+
+.links {
+  display: none;
+  align-items: center;
+}
+
+.links li a {
+  font-size: 20px; /* Increase font size */
+  text-decoration: none; /* Remove underline */
+  position: relative; /* Create relative positioning for the underline */
+  /* border: 1px solid #ccc; */
+  color: #000000;
+
+
+}
+
+.links li a:hover {
+  color: #000000;
+  font-weight: bolder; /* Change text color on hover */
+}
+
+.links li a:hover::after {
+  content: ""; /* Create an empty element for the underline */
+  display: block; /* Set the element as a block */
+  width: 100%; /* Set the width to 100% */
+  height: 2px; /* Set the height of the underline */
+  background-color: #C7F14D; /* Set the color of the underline */
+  position: absolute; /* Position the underline relative to the link */
+  bottom: -5px; /* Position the underline below the link */
+  left: 0; /* Position the underline to the left of the link */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  height: 40px;
+}
+
+.search-bar button[type="submit"] {
+  background-color: #6FBBFF;
+  border: none;
+  width:100%;
+  height:35px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.profile-circle {
+    margin-left: 5px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+.select-wrapper {
+  padding-top:10px;
+  border-bottom: 2px solid #000000;
+
+  display: flex;
+  justify-content: center;
+}
+
+.select {
+  position: relative;
+  width: 200px;
+  margin: 0 10px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* border: none; */
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 40px;
+  padding: 5px 40px 5px 10px;
+  width: 100%;
+  background-color: #f5f5f5;
+  /* background-image: url('https://image.flaticon.com/icons/png/128/149/149220.png'); */
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* Custom arrow */
+.select:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid #ccc;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  pointer-events: none;
+}
+
+/* Custom arrow on hover */
+.select:hover:before {
+  border-top-color: #aaa;
+}
+.welcomemsg{
+  padding-top:100px;
+}
+
+nav li.search-icon {
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+nav .search-input {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+/* 
+nav .search-input form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+nav .search-input input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+nav .search-input button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+} */
+@media screen and (max-width: 500px) {
+  nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Set a high z-index to make sure the nav is on top of other elements */
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  /* padding: 10px 20px; */
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  /* width: 95%; */
+  height: 60px;
+  flex-direction: row;
+}
+  .menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  background-color: #ccc;
+  z-index: 9998;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+
+  .menu-toggle {
+    display: block;
+  }
+  .links.show-menu {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: initial;
+  padding-top: 10px;
+  padding-left: 0px;
+  height: 100vh;
+  width: 40%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 999;
+
+}
+.desktoplinks{
+  display: none;
+ 
+}
+  
+  .links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+  }
+  
+  .links li {
+    margin: 10px 0;
+  }
+  
+  .links a {
+    color: #000000;
+    font-weight: bold;
+
+  }
+  
+  .links a:hover {
+    color: #000000;
+  font-weight: bolder;
+
+  }
+  
+  .menu-toggle.active + .links {
+    display: flex;
+  }
+  
+  .search-bar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .search-bar input[type="text"] {
+    width: 100%;
+    height: 40px;
+  }
+  .logo {
+    /* padding-right: 130px; */
+  font-size: 24px;
+  font-weight: bold;
+  
+}
+.select {
+    flex-basis: auto;
+    position: relative;
+    width: 200px;
+  }
+  .select-wrapper {
+  padding-top:10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.select {
+  flex-basis: 100%;
+  margin: 0 10px;
+}
+}
+.question-container {
+  /* border: 1px solid black; */
+  border: 2px solid #dbdbdb; /* adds a 1 pixel solid border */
+ box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* adds a box-shadow */
+  padding: 10px 10px 10px 10px;
+  width: calc(100% - 20px);
+}
+
+.question-container h2 {
+  text-align: left;
+  font-size: 30px;
+  font-weight: bolder; 
+}
+
+.answer-option {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.option-border {
+border: 2px solid #dbdbdb;
+padding: 6px 5px 3px 6px;
+border-radius: 5px;
+margin: 5px;
+  border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px; 
+}
+
+.selected-option {
+  border-color: green;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .option-border {
+  border-color: black;
+  background-color: grey;
+}
+
+.blockname{ 
+    color: #ffffff;
+    background-color: #a7e7f1;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+   
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;   
+}
+.subjectname{ 
+    color: #ffffff;
+    background-color: #9580ff;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;   
+  
+}
+.lecturename{ 
+    color: #ffffff;
+    background-color: #ff673e;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;   
+}
+
+
+.first_tagdiv{
+    text-align: right;
+    display: block;
+    float: right;
+    padding: 10px;
+  
+}
+.first_tag{
+    color: #a6a6a6;
+    background-color: #f4f4f4;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;   
+
+    
+}
+.second_tag{
+    color: #a6a6a6;
+    background-color: #f4f4f4;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;   
+
+}
+.astyle{
+    color: #3e3e3e;
+    background-color: #f9f9f9;
+    display: inline-block;
+    font-family: 'Rubik', sans-serif;
+
+    font-weight: 800;
+font-size: 24px;
+line-height: 108%;
+
+    margin: -3px;
+    padding: 2px 5px 1px 5px;
+    font-weight: bolder;
+    border: 2px solid #dbdbdb;
+    /* border-radius: 30px; */
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+
+}
+.button {
+    background: linear-gradient(to bottom, #dbdbdb, #dbdbdb); /* creates a gradient background */
+    border: none; /* removes the border */
+    border-radius: 8px; /* adds a border-radius of 8 pixels */
+    color: black; /* sets the text color to white */
+    cursor: pointer; /* sets the cursor to a pointer on hover */
+    font-size: 16px; /* sets the font size to 16 pixels */
+    padding: 12px 24px; /* adds padding of 12 pixels on top and bottom, and 24 pixels on the sides */
+    text-align: center; /* centers the text horizontally */
+    text-decoration: none; /* removes the underline */
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.25); /* adds a text shadow */
+  }
+  .select-label {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+    </style>
+</head>
+<body>
+  <h3 class="welcomemsg">
+    Welcome Ahmad, Let's answer some questions!
+  </h3>
+    <nav>
+      <div class="search-bar">
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <div class="logo"><img style="height: 60px; width:60px;" src="512.png"></div>
+      </div>
+        <ul class="desktoplinks">
+          <li><a href="#">Feedback</a></li>
+          <li><a href="#">About us</a></li>
+        </ul>
+        <ul class="links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Add question</a></li>
+          <li><a href="#">Results</a></li>
+          <li><a href="#">feedback</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+       
+        
+        <div class="search-bar">
+          <i class="fa-solid fa-square-poll-vertical fa-3x" style="padding-right: 10px;"></i>
+          <i class="fa-solid fa-circle-plus fa-3x" style="padding-right: 10px;"></i>
+          <li class="search-icon"><a href="#"><i class="fa fa-search fa-3x" aria-hidden="true" style="color: #000000;"></i></a></li>
+          <div class="search-input">
+          <input type="text" placeholder="Search...">
+          <button type="submit">Search</button>
+          </div>
+          <div class="profile-circle"></div>
+        </div>
+      </nav>
+
+      <div class="select-wrapper">
+        <!-- <label for="select-input" class="select-label">Select the options:</label> -->
+        <div class="select">
+          <select>
+            <option value="option1">Choose a Tag</option>
+            <option value="option2">Option 2</option>
+          </select>
+        </div>
+        <div class="select">
+          <select>
+            <option value="option1">Choose a block</option>
+            <option value="option2">Option 2</option>
+          </select>
+        </div>
+        <div class="select">
+          <select>
+            <option value="option1">Choose a subject</option>
+            <option value="option2">Option 2</option>
+          </select>
+        </div>
+        <div class="select">
+          <select>
+            <option value="option1">Choose a lecture</option>
+            <option value="option2">Option 2</option>
+          </select>
+        </div>
+      </div>
+      <h2 class="">
+        The Questions
+      </h2>
+      <div class="question-container">
+        <h2>1) Which of the following is a fruit?</h2>
+        <div class=""><p class="blockname">Surger</p><p class="subjectname">Fracture</p><p class="lecturename">Last lecture</p></div>
+      <form>
+        <label class="answer-option">
+          <input type="radio" name="fruit" value="carrot" onclick="showColor(this)">
+          <div class="option-border">
+           <span class="astyle">A</span>&nbsp;&nbsp; or whatever width you prefe or whatever width you prefe Carrot
+          </div>
+        </label>
+        <label class="answer-option">
+          <input type="radio" name="fruit" value="apple" onclick="showColor(this)">
+          <div class="option-border">
+              <span class="astyle">B</span>&nbsp;&nbsp; Apple
+          </div>
+        </label>
+        <label class="answer-option">
+          <input type="radio" name="fruit" value="potato" onclick="showColor(this)">
+          <div class="option-border">
+              <span class="astyle">C</span>&nbsp;&nbsp; Potato
+          </div>
+        </label>
+        <label class="answer-option">
+          <input type="radio" name="fruit" value="broccoli" onclick="showColor(this)">
+          <div class="option-border">
+              <span class="astyle">D</span>&nbsp;&nbsp; Broccoli
+          </div>
+        </label>
+        <label class="answer-option">
+          <input type="radio" name="fruit" value="steak" onclick="showColor(this)">
+          <div class="option-border">
+              <span class="astyle">E</span>&nbsp;&nbsp; Steak
+          </div>
+        </label>
+        <button class="button">Check</button>
+       <div class="first_tagdiv"><p class="first_tag">#In_lectures</p><p class="second_tag">#Easy</p></div>
+      </form>
+    </div>
+    <div class="question-container">
+      <h2>2) Which of the following is a fruit?</h2>
+      <div class=""><p class="blockname">Surger</p><p class="subjectname">Fracture</p><p class="lecturename">Last lecture</p></div>
+    <form>
+      <label class="answer-option">
+        <input type="radio" name="fruit" value="carrot" onclick="showColor(this)">
+        <div class="option-border">
+         <span class="astyle">A</span>&nbsp;&nbsp; or whatever width you prefe or whatever width you prefe Carrot
+        </div>
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="fruit" value="apple" onclick="showColor(this)">
+        <div class="option-border">
+            <span class="astyle">B</span>&nbsp;&nbsp; Apple
+        </div>
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="fruit" value="potato" onclick="showColor(this)">
+        <div class="option-border">
+            <span class="astyle">C</span>&nbsp;&nbsp; Potato
+        </div>
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="fruit" value="broccoli" onclick="showColor(this)">
+        <div class="option-border">
+            <span class="astyle">D</span>&nbsp;&nbsp; Broccoli
+        </div>
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="fruit" value="steak" onclick="showColor(this)">
+        <div class="option-border">
+            <span class="astyle">E</span>&nbsp;&nbsp; Steak
+        </div>
+      </label>
+      <button class="button">Check</button>
+     <div class="first_tagdiv"><p class="first_tag">#In_lectures</p><p class="second_tag">#Easy</p></div>
+    </form>
+  </div>
+<script>
+
+const menuToggle = document.getElementById('menu-toggle');
+const links = document.querySelector('.links');
+
+document.addEventListener("click", function(event) {
+  if (event.target.closest(".links") === null && event.target.closest(".menu-toggle") === null && links.classList.contains("show-menu")) {
+    links.classList.remove("show-menu");
+    console.log("menu closed");
+  }
+});
+
+document.getElementById("menu-toggle").addEventListener("click", function() {
+  var links = document.querySelector(".links");
+  if (links.classList.contains("show-menu")) {
+    links.classList.remove("show-menu");
+  } else {
+    links.classList.add("show-menu");
+  }
+});
+
+function showColor(selectedOption) {
+  const answerOptions = document.getElementsByName('fruit');
+
+  for (let i = 0; i < answerOptions.length; i++) {
+    answerOptions[i].parentNode.classList.remove('selected-option');
+  }
+
+  selectedOption.parentNode.classList.add('selected-option');
+}
+
+const searchIcon = document.querySelector('.search-icon');
+const searchInput = document.querySelector('.search-input');
+
+searchIcon.addEventListener('click', function() {
+  searchInput.style.display = 'block';
+});
+</script>
+      
+  </body>
