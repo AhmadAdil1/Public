@@ -1,0 +1,1215 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@800&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Rubik:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="xxxxxx" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/93459ecc04.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/93459ecc04.css" crossorigin="anonymous">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>   
+<style>
+  #search-container {
+  display: none;
+}
+
+#search-container.show {
+  display: block;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Set a high z-index to make sure the nav is on top of other elements */
+  background-color: #fff;
+  border-bottom: 2px solid #EDEFF4;
+  /* padding: 10px 20px; */
+  padding: 10px 10px 0px 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  flex-direction: row;
+}
+
+.logo {
+  /* padding-right: 130px; */
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 10px;
+  /* justify-content: center; */
+}
+
+.menu-toggle {
+  display: block;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.desktoplinks{
+  /* display: none; */
+  display: flex;
+  align-items: center;
+}
+
+.desktoplinks li {
+  margin-right: 20px;
+  list-style: none; /* Remove the default bullet points */
+}
+
+.desktoplinks li a {
+  font-size: 20px; /* Increase font size */
+  text-decoration: none; /* Remove underline */
+  position: relative; /* Create relative positioning for the underline */
+  /* border: 1px solid #ccc; */
+  color: #000000;
+
+
+}
+
+.desktoplinks li a:hover {
+  color: #000000;
+  font-weight: bolder; /* Change text color on hover */
+}
+
+.desktoplinks li a:hover::after {
+  content: ""; /* Create an empty element for the underline */
+  display: block; /* Set the element as a block */
+  width: 100%; /* Set the width to 100% */
+  height: 2px; /* Set the height of the underline */
+  background-color: #C7F14D; /* Set the color of the underline */
+  position: absolute; /* Position the underline relative to the link */
+  bottom: -5px; /* Position the underline below the link */
+  left: 0; /* Position the underline to the left of the link */
+}
+
+.links {
+  display: none;
+}
+
+.links.show-menu {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: initial;
+  padding-top: 10px;
+  padding-left: 0px;
+  height: 100vh;
+  width: 25%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 999;
+
+}
+
+.links.show-menu li {
+  margin: 20px 10px;
+}
+
+.links.show-menu a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+
+}
+
+.links.show-menu a:hover {
+  color: #000000;
+  font-weight: bolder;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: #333;
+}
+
+
+.links li {
+  margin-right: 20px;
+  list-style: none; /* Remove the default bullet points */
+}
+
+.links {
+  display: none;
+  align-items: center;
+}
+
+.links li a {
+  font-size: 20px; /* Increase font size */
+  text-decoration: none; /* Remove underline */
+  position: relative; /* Create relative positioning for the underline */
+  /* border: 1px solid #ccc; */
+  color: #000000;
+
+
+}
+
+.links li a:hover {
+  color: #000000;
+  font-weight: bolder; /* Change text color on hover */
+}
+
+.links li a:hover::after {
+  content: ""; /* Create an empty element for the underline */
+  display: block; /* Set the element as a block */
+  width: 100%; /* Set the width to 100% */
+  height: 2px; /* Set the height of the underline */
+  background-color: #C7F14D; /* Set the color of the underline */
+  position: absolute; /* Position the underline relative to the link */
+  bottom: -5px; /* Position the underline below the link */
+  left: 0; /* Position the underline to the left of the link */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  height: 40px;
+}
+
+.search-bar button[type="submit"] {
+  background-color: #6FBBFF;
+  border: none;
+  width:100%;
+  height:35px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.profile-circle {
+    margin-left: 5px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+.select-wrapper {
+  padding-top:10px;
+  border-bottom: 2px solid #000000;
+
+  display: flex;
+  justify-content: center;
+}
+
+.select {
+  position: relative;
+  width: 200px;
+  margin: 0 10px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* border: none; */
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 40px;
+  padding: 5px 40px 5px 10px;
+  width: 100%;
+  background-color: #f5f5f5;
+  /* background-image: url('https://image.flaticon.com/icons/png/128/149/149220.png'); */
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* Custom arrow */
+.select:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid #ccc;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  pointer-events: none;
+}
+
+/* Custom arrow on hover */
+.select:hover:before {
+  border-top-color: #aaa;
+}
+.welcomemsg{
+  padding-top:100px;
+}
+
+nav li.search-icon {
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+nav .search-input {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.reportquestiondiv{
+    color: #000000;
+    background-color: #f4f4f4;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;    
+}
+#report-form {
+  width: 75%;
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 
+nav .search-input form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+nav .search-input input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+nav .search-input button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+} */
+@media screen and (max-width: 500px) {
+  nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Set a high z-index to make sure the nav is on top of other elements */
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  /* padding: 10px 20px; */
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  /* width: 95%; */
+  height: 60px;
+  flex-direction: row;
+}
+  .menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  background-color: #ccc;
+  z-index: 9998;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+
+  .menu-toggle {
+    display: block;
+  }
+  .links.show-menu {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: initial;
+  padding-top: 10px;
+  padding-left: 0px;
+  height: 100vh;
+  width: 40%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 999;
+
+}
+.desktoplinks{
+  display: none;
+ 
+}
+  
+  .links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+  }
+  
+  .links li {
+    margin: 10px 0;
+  }
+  
+  .links a {
+    color: #000000;
+    font-weight: bold;
+
+  }
+  
+  .links a:hover {
+    color: #000000;
+  font-weight: bolder;
+
+  }
+  
+  .menu-toggle.active + .links {
+    display: flex;
+  }
+  
+  .search-bar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .search-bar input[type="text"] {
+    width: 100%;
+    height: 40px;
+  }
+  .logo {
+    /* padding-right: 130px; */
+  font-size: 24px;
+  font-weight: bold;
+  
+}
+.select {
+    flex-basis: auto;
+    position: relative;
+    width: 200px;
+  }
+  .select-wrapper {
+  padding-top:10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.select {
+  flex-basis: 100%;
+  margin: 0 10px;
+}
+}
+.question-container {
+  /* border: 1px solid black; */
+  border: 2px solid #dbdbdb; /* adds a 1 pixel solid border */
+ box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* adds a box-shadow */
+  padding: 10px 10px 10px 10px;
+  width: calc(100% - 20px);
+}
+
+.question-container h2 {
+  text-align: left;
+  font-size: 30px;
+  font-weight: bolder; 
+}
+
+.answer-option {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.option-border {
+border: 2px solid #dbdbdb;
+padding: 6px 5px 3px 6px;
+border-radius: 5px;
+margin: 5px;
+  border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px; 
+}
+
+#a{
+  
+  background-color: white;
+  /* background-image: linear-gradient(to right, green 10%, white 0%); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#a span{
+  background-color: none;
+}
+#b{
+  background-color: white;
+  /* background-image: linear-gradient(to right, green 20%, white 0%); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#b span{
+  background-color: none;
+
+}
+#c{
+  background-color: white;
+  /* background-image: linear-gradient(to right, red 40%, white 0%); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#c span{
+  background-color: none;
+
+}
+#d{
+  background-color: white;
+  /* background-image: linear-gradient(to right, red 20%, white 0%); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#d span{
+  background-color: none;
+
+}
+#e{
+  background-color: white;
+  /* background-image: linear-gradient(to right, red 10%, white 0%); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#e span{
+  background-color: none;
+
+}
+
+.selected-option {
+  border-color: green;
+}
+
+
+input[type="radio"] {
+  display: none;
+}
+#report-form2 input[type="radio"] {
+  display: inline-block;
+  /* position: flex; */
+}
+
+input[type="radio"]:checked + .option-border {
+  border-color: lightblue;
+  /* background-color: grey; */
+}
+
+.blockname{ 
+    color: #ffffff;
+    background-color: #a7e7f1;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+   
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;   
+}
+.subjectname{ 
+    color: #ffffff;
+    background-color: #9580ff;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;   
+  
+}
+.lecturename{ 
+    color: #ffffff;
+    background-color: #ff673e;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;   
+}
+
+
+.first_tagdiv{
+    text-align: right;
+    display: block;
+    float: right;
+    padding: 10px;
+  
+}
+.first_tag{
+    color: #a6a6a6;
+    background-color: #f4f4f4;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;    
+}
+.second_tag{
+    color: #a6a6a6;
+    background-color: #f4f4f4;
+    font-size: 15px; 
+    margin: 5px;
+    display: initial;
+    padding: 5px;
+    border-radius: 50px;
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;   
+
+}
+.astyle{
+    color: #3e3e3e;
+    background-color: unset;
+    display: inline-block;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 108%;
+    margin: -3px;
+    padding: 2px 5px 1px 5px;
+    font-weight: bolder;
+    /* border: 2px solid #dbdbdb; */
+    /* padding-left: 20px; */
+    /* border-radius: 30px; */
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+
+}
+.button {
+    background: linear-gradient(to bottom, #dbdbdb, #dbdbdb); /* creates a gradient background */
+    border: none; /* removes the border */
+    border-radius: 8px; /* adds a border-radius of 8 pixels */
+    color: black; /* sets the text color to white */
+    cursor: pointer; /* sets the cursor to a pointer on hover */
+    font-size: 16px; /* sets the font size to 16 pixels */
+    padding: 12px 24px; /* adds padding of 12 pixels on top and bottom, and 24 pixels on the sides */
+    text-align: center; /* centers the text horizontally */
+    text-decoration: none; /* removes the underline */
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.25); /* adds a text shadow */
+  }
+  .select-label {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.percent{
+  float: right;
+   font-size: 20px;
+   font-weight: bold;
+   width: 9%;
+   text-align: end;
+}
+    </style>
+</head>
+<body id="createQuestionContainer()">
+  <h3 class="welcomemsg">
+    Welcome Ahmad, Let's answer some questions!
+  </h3>
+    <nav>
+      <div class="search-bar">
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <div class="logo"><img style="height: 60px; width:60px;" src="512.png"></div>
+      </div>
+        <ul class="desktoplinks">
+          <li><a href="#">Feedback</a></li>
+          <li><a href="#">About us</a></li>
+        </ul>
+        <ul class="links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Add question</a></li>
+          <li><a href="#">Results</a></li>
+          <li><a href="#">feedback</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+       
+        
+        <div class="search-bar">
+          <i class="fa-solid fa-square-poll-vertical fa-3x" style="padding-right: 10px;"></i>
+          <i class="fa-solid fa-circle-plus fa-3x" style="padding-right: 10px;"></i>
+          <li class="search-icon"><a href="#"><i class="fa fa-search fa-3x" aria-hidden="true" style="color: #000000;"></i></a></li>
+          <div class="search-input">
+          <input type="text" placeholder="Search...">
+          <button type="submit">Search</button>
+          </div>
+          <div class="profile-circle"></div>
+        </div>
+      </nav>
+
+      <div class="select-wrapper">
+        <!-- <label for="select-input" class="select-label">Select the options:</label> -->
+        <div class="select">
+          <select>
+            <option value="option1">Choose a Tag</option>
+            <option value="option2">Option 2</option>
+          </select>
+        </div>
+        <div class="select">
+          <select>
+            <option value="option1">Choose a block</option>
+            <option value="option2">Option 2</option>
+          </select>
+        </div>
+        <div class="select">
+          <select>
+            <option value="option1">Choose a subject</option>
+            <option value="option2">Option 2</option>
+          </select>
+        </div>
+        <div class="select">
+          <select>
+            <option value="option1">Choose a lecture</option>
+            <option value="option2">Option 2</option>
+          </select>
+        </div>
+      </div>
+      <h2 class="">
+        The Questions
+      </h2>
+
+      <div class="question-container"><h2>1) Which of the following is a fruit?</h2><div class="class-info-container">
+        <p class="blockname">Surger</p><p class="subjectname">Fracture</p><p class="lecturename">Last lecture</p></div><p id="CorrectOrNotAbove"></p><div class="answer-container"><form name="Fruit">
+          
+          <label class="answer-option"><input type="radio" name="fruit" value="carrot" onclick="ansAA('carrot')">
+          <div class="option-border" id="A"><span class="astyle">A</span>&nbsp;&nbsp;<div style="width: 10px;
+        display: contents;"><span style="display: inline-block;width: 80%;">carrot</span></div><span id="APercent" class="percent"></span>
+      </div></label>
+      
+      <label class="answer-option"><input type="radio" name="fruit" value="apple" onclick="ansBB('apple')"><div class="option-border" id="B"><span class="astyle">B</span>&nbsp;&nbsp;<div style="width: 10px;
+        display: contents;"><span style="display: inline-block;width: 80%;">Apple</span></div><span id="BPercent" class="percent" ></span>
+      </div></label>
+
+
+        <label class="answer-option"><input type="radio" name="fruit" value="potato" onclick="ansCC('potato')"><div class="option-border" id="C"><span class="astyle">C</span>&nbsp;&nbsp;<div style="width: 10px;
+          display: contents;"><span style="display: inline-block;width: 80%;">patato</span></div><span id="CPercent" class="percent"></span>
+        </div></label>
+        
+        <label class="answer-option"><input type="radio" name="fruit" value="broccoli" onclick="ansDD('broccoli')"><div class="option-border" id="D"><span class="astyle">D</span>&nbsp;&nbsp;<div style="width: 10px;
+          display: contents;"><span style="display: inline-block;width: 80%;">broccoli</span></div>
+          <span id="DPercent" class="percent"></span>
+        </div></label>
+
+        <label class="answer-option"><input type="radio" name="fruit" value="steak" onclick="ansEE('steak')"><div class="option-border" id="E"><span class="astyle">E</span>&nbsp;&nbsp;<div style="width: 10px;
+          display: contents;"><span style="display: inline-block;width: 80%;">steak</span></div><span id="EPercent" class="percent"></span>
+        </div></label>
+        
+        <button class="button" type="button" onclick="checking_ans('carrot', 'QuestionNote', 'CorrectOrNotAbove', '22', 'carrot is carrot', '10', '3', '5', '1', '1', '0', '33', '44', '55', '66', '77', '88', '99', '100', '110', '120', '130', '140', '25', 'TellThemIfTheyHaveAnsweredOrNot', '67', '120', 'APercent', 'BPercent', 'CPercent', 'DPercent', 'EPercent')">Check</button>
+        <div class="first_tagdiv"><p class="first_tag">#In_lectures</p><p class="second_tag">#Easy</p></div>
+      
+      </form></div>
+      <p id="TellThemIfTheyHaveAnsweredOrNot"></p>
+     
+      <p id="QuestionNote"></p>
+      
+      </div>
+      
+  <div id="report-form2" class="special" ></div>
+  
+<script>
+
+anss = "";
+addone = 0;
+function ansAA(ansA) {
+  anss = "";
+  anss = ansA;
+  addone = 1;
+  console.log(anss);
+}
+
+function ansBB(ansB) {
+  anss = "";
+  anss = ansB;
+  addone = 2;
+  console.log(anss);
+
+}
+
+function ansCC(ansC) {
+  anss = "";
+  anss = ansC;
+  addone = 3;
+  console.log(anss);
+
+}
+
+function ansDD(ansD) {
+  anss = "";
+  anss = ansD;
+  addone = 4;
+  console.log(anss);
+
+}
+
+function ansEE(ansE) {
+  anss = "";
+  anss = ansE;
+  addone = 5;
+  console.log(anss);
+}
+
+  var i = 0;
+  questionsChecked = {};
+  questionsBarShown = {};
+
+function checking_ans(RightAnswer, QuestionNote, ShowCorrectOrIncorrect, sendidofQuestionNote, QuestionNote_noline, taq, taco, tbco, tcco, tdco, teco, pida, pidb, pidc, pidd, pide, bida, bidb, bidc, bidd, bide, sendidofreport, idofuserforajax, noaq1, TellThemIfTheyHaveAnsweredOrNot, IdOfAboveCorrectOrNot, IdOfQuestion, APercent, BPercent, CPercent,DPercent,EPercent,) {  
+  NumberOfAnsweredQuetionBytheUser = 1;
+  IdOfTheQuestion = 156;
+    if (anss != "") {
+      if (anss !== RightAnswer) {
+        // document.getElementById(A_percent).innerHTML = "10";
+        document.getElementById(ShowCorrectOrIncorrect).innerHTML = "<h1 style='color: red;'> Incorrect</h1>"
+        document.getElementById(QuestionNote).innerHTML = "<button type='button' class='button' onclick='showingRightAnswer()'>Right Answer</button>";
+        if(NumberOfAnsweredQuetionBytheUser > 0){
+        document.getElementById(TellThemIfTheyHaveAnsweredOrNot).innerHTML = "You've already answered this question before.";
+      }
+        return;
+      } else {
+       document.getElementById(ShowCorrectOrIncorrect).innerHTML = "<h1 style='color: green;'> Correct</h1>"
+        document.getElementById(QuestionNote).innerHTML = "<button type='button' class='button' onclick='showingRightAnswer()'>Explanation</button>";
+      }
+
+      if(NumberOfAnsweredQuetionBytheUser > 0){
+        document.getElementById(TellThemIfTheyHaveAnsweredOrNot).innerHTML = "You've already answered this question before."
+      questionsChecked[IdOfTheQuestion] = true;
+      if (taq > 0) {
+        ap = (taco / taq * 100).toFixed(0);
+      } else {
+        ap = 0
+      };
+      if (taq > 0) {
+        bp = (tbco / taq * 100).toFixed(0);
+      } else {
+        bp = 0
+      };
+      if (taq > 0) {
+        cp = (tcco / taq * 100).toFixed(0);
+      } else {
+        cp = 0
+      };
+      if (taq > 0) {
+        dp = (tdco / taq * 100).toFixed(0);
+      } else {
+        dp = 0
+      };
+      if (taq > 0) {
+        ep = (teco / taq * 100).toFixed(0);
+      } else {
+        ep = 0
+      }; 
+      // console.log("first",ap,bp,cp,dp,ep);
+    }
+  
+
+        if (questionsChecked[IdOfTheQuestion] && !questionsBarShown[IdOfTheQuestion]) {
+          questionsBarShown[IdOfTheQuestion] = true;
+        if (i == 0) {
+          i = 1;
+          var per = ap;
+          var perb = bp;
+          var perc = cp;
+          var perd = dp;
+          var pere = ep;
+          // var elem = document.getElementById('A');
+          // var elemb = document.getElementById(BPercent);
+          // var elemc = document.getElementById(CPercent);
+          // var elemd = document.getElementById(DPercent);
+          // var eleme = document.getElementById(EPercent);
+          // var proga = document.getElementById(pida);
+          // proga.removeAttribute("hidden");
+          // var progb = document.getElementById(pidb);
+          // progb.removeAttribute("hidden");
+          // var progc = document.getElementById(pidc);
+          // progc.removeAttribute("hidden");
+          // var progd = document.getElementById(pidd);
+          // progd.removeAttribute("hidden");
+          // var proge = document.getElementById(pide);
+          // proge.removeAttribute("hidden");
+
+
+          document.getElementById(APercent).innerHTML = per + "%";
+          document.getElementById(BPercent).innerHTML = perb + "%";
+          document.getElementById(CPercent).innerHTML = perc + "%";
+          document.getElementById(DPercent).innerHTML = perd + "%";
+          document.getElementById(EPercent).innerHTML = pere + "%";
+
+          var width = 1;
+          var widtha = 1;
+          var widthb = 1;
+          var widthc = 1;
+          var widthd = 1;
+          var widthe = 1;
+          var id = setInterval(framea, 20);
+          var idb = setInterval(frameb, 20);
+          var idc = setInterval(framec, 20);
+          var idd = setInterval(framed, 20);
+          var ide = setInterval(framee, 20);
+
+          function framea() {
+            if (widtha >= per) {
+              clearInterval(id);
+              i = 0;
+            } else {
+              widtha++;
+              console.log(widtha);
+              document.getElementById('A').style.backgroundImage = "linear-gradient(to right, green "+widtha+"%, white 0%)"
+              // elemt.style.width = widtha + "%";
+              //  linear-gradient(to right, green 10%, white 0%);
+
+
+            }
+          }
+
+          function frameb() {
+            if (widthb >= perb) {
+              clearInterval(idb);
+              i = 0;
+            } else {
+              widthb++;
+              // console.log(widthb);
+              document.getElementById('B').style.backgroundImage = "linear-gradient(to right, red "+widthb+"%, white 0%)"
+              // elemb.style.width = widthb + "%";
+            }
+          }
+
+          function framec() {
+            if (widthc >= perc) {
+              clearInterval(idc);
+              i = 0;
+            } else {
+              widthc++;
+              // console.log(widthc);
+              document.getElementById('C').style.backgroundImage = "linear-gradient(to right, red "+widthc+"%, white 0%)"
+              // elemc.style.width = widthc + "%";
+            }
+          }
+
+          function framed() {
+            if (widthd >= perd) {
+              clearInterval(idd);
+              i = 0;
+            } else {
+              widthd++;
+              // console.log(widthd);
+              document.getElementById('D').style.backgroundImage = "linear-gradient(to right, red "+widthd+"%, white 0%)"
+              // elemd.style.width = widthd + "%";
+            }
+          }
+
+          function framee() {
+            if (widthe >= pere) {
+              clearInterval(ide);
+              i = 0;
+            } else {
+              widthe++;
+              document.getElementById('E').style.backgroundImage = "linear-gradient(to right, red "+widthe+"%, white 0%)"
+              // eleme.style.width = widthe + "%";
+            }
+          }
+        }
+      }
+    
+      idofquestionajax = IdOfQuestion;
+      idofuserajax = idofuserforajax;
+      choosenansajax = anss;
+      RightAnswerajax = RightAnswer;
+
+  //     if (idofquestionajax != "" && idofuserajax != "" && choosenansajax != "" && RightAnswerajax != "") {
+  // var xhttp = new XMLHttpRequest();
+  // xhttp.open("POST", "send_answer_records_forjs.php?a="+idofquestionajax+"&b="+idofuserajax+"&c="+choosenansajax+"&d="+RightAnswerajax, true);
+  // xhttp.send();
+  //     }
+      idofquestion = IdOfTheQuestion;
+      idofreportbutton = sendidofreport;
+      idqdms = idofquestion + "q";
+      idnra = idofquestion + "n";
+      idr2a = idofquestion + "r";
+      idother = idofquestion + "o";
+
+      
+      // if (anss == RightAnswer) {
+      //   document.getElementById(IdOfTheQuestion).innerHTML = "<button style= 'color: black;padding: 5px 10px;text-align: center;font-size: 16px;margin: 10px 5px 5px 0px;cursor: pointer;' onclick='showingRightAnswer()'>Explanation</button>";
+      //   document.getElementById(ShowCorrectOrIncorrect).innerHTML = "<h1 style='color: green;'> Correct</h1>"
+      // } else {
+
+      //   document.getElementById(IdOfTheQuestion).innerHTML = "<button style= 'color: black;padding: 5px 10px;text-align: center;font-size: 16px;margin: 10px 5px 5px 0px;cursor: pointer;' onclick='showingRightAnswer()'>Right Answer</button>";
+      //   document.getElementById(ShowCorrectOrIncorrect).innerHTML = "<h1 style='color: red;'> Incorrect</h1>"
+      // }
+
+      // if (anss == RightAnswer) {
+      //   document.getElementById(IdOfTheQuestion).innerHTML = "<button type='button' class='button' onclick='showingRightAnswer()'>Explanation</button>";
+      //   document.getElementById(ShowCorrectOrIncorrect).innerHTML = "<h1 style='color: green;'> Correct</h1>"
+      // } else {
+      //   document.getElementById(IdOfTheQuestion).innerHTML = "<button type='button' class='button' onclick='showingRightAnswer()'>Right Answer</button>";
+      //   document.getElementById(ShowCorrectOrIncorrect).innerHTML = "<h1 style='color: red;'> Incorrect</h1>"
+      // }
+
+      idofQuestionNote = sendidofQuestionNote;
+      showright = RightAnswer;
+      QuestionNote1 = QuestionNote_noline;
+      anss = "";
+    } else {
+      alert("Please select an answer!");
+    }
+  }
+  
+//   function checkans(anss, RightAnswer, IdOfTheQuestion, ShowCorrectOrIncorrect){
+// if (anss == RightAnswer) {
+//         document.getElementById(IdOfTheQuestion).innerHTML = "<button type='button' class='button' onclick='showingRightAnswer()'>Explanation</button>";
+//         document.getElementById(ShowCorrectOrIncorrect).innerHTML = "<h1 style='color: green;'> Correct</h1>"
+//       } else {
+//         document.getElementById(IdOfTheQuestion).innerHTML = "<button type='button' class='button' onclick='showingRightAnswer()'>Right Answer</button>";
+//         document.getElementById(ShowCorrectOrIncorrect).innerHTML = "<h1 style='color: red;'> Incorrect</h1>"
+//       }}
+
+  function showingRightAnswer() {
+    showright = "Carrot"
+    QuestionNote1 = "Carrot is a fruit"
+    showright1 = showright.replace("@", '"')
+    showright2 = showright1.replace("#", "'")
+    QuestionNote2 = QuestionNote1.replace("%", '"')
+    QuestionNote3 = QuestionNote2.replace("*", "'")
+    document.getElementById("QuestionNote").innerHTML = "<p style='font-size: 20px; display: contents;'>Right answer is " + showright2.bold() + "<br> Note: " + QuestionNote3 + '<div class="reportquestiondiv" style="display: flex; float:right;" onclick=reportform()><p style="display: contents; font-size:15px;">Question Report </p><i style="padding-left: 10px;"class="fa-regular fa-flag"></i></div>'
+
+  }
+// function createQuestionContainer() {
+//   // Create elements
+//   const questionContainer = document.createElement("div");
+//   const questionHeader = document.createElement("h2");
+//   const classInfoContainer = document.createElement("div");
+//   const classBlockName = document.createElement("p");
+//   const classSubjectName = document.createElement("p");
+//   const classLectureName = document.createElement("p");
+//   const answerContainer = document.createElement("div");
+//   const answerForm = document.createElement("form");
+//   const firstTagDiv = document.createElement("div");
+//   const firstTagP = document.createElement("p");
+//   const secondTagP = document.createElement("p");
+//   const ShowCorrectOrIncorrect = document.createElement("p");
+//   const QuestionNote = document.createElement("p");
+//   const checkButton = document.createElement("button");
+
+//   // Set class names and attributes
+//   questionContainer.classList.add("question-container");
+//   classInfoContainer.classList.add("class-info-container");
+//   classBlockName.classList.add("blockname");
+//   classSubjectName.classList.add("subjectname");
+//   classLectureName.classList.add("lecturename");
+//   answerContainer.classList.add("answer-container");
+//   answerForm.setAttribute("name", "Fruit");
+//   ShowCorrectOrIncorrect.setAttribute("id", "ShowCorrectOrIncorrect");
+//   QuestionNote.setAttribute("id", "QuestionNote");
+//   checkButton.classList.add("button");
+//   checkButton.innerText = "Check";
+//   firstTagDiv.classList.add("first_tagdiv");
+//   checkButton.setAttribute("type", "button");
+//   checkButton.setAttribute("onclick", "checkans('RightAnswer', 'RightAnswer', 'QuestionNote','ShowCorrectOrIncorrect')");
+//   firstTagP.classList.add("first_tag");
+//   secondTagP.classList.add("second_tag");
+//   firstTagP.innerText = "#In_lectures";
+//   secondTagP.innerText = "#Easy";
+
+//   // Append elements to the DOM
+//   document.body.appendChild(questionContainer);
+//   questionContainer.appendChild(questionHeader);
+//   questionContainer.appendChild(classInfoContainer);
+//   classInfoContainer.appendChild(classBlockName);
+//   classInfoContainer.appendChild(classSubjectName);
+//   classInfoContainer.appendChild(classLectureName);
+//   questionContainer.appendChild(ShowCorrectOrIncorrect);
+//   questionContainer.appendChild(answerContainer);
+//   answerContainer.appendChild(answerForm);
+//   firstTagDiv.appendChild(firstTagP);
+//   firstTagDiv.appendChild(secondTagP);
+//   answerForm.appendChild(createAnswerOption("carrot", "A", "Carrotcarrotcarrotcarrotcarro tcarrotcarrotcarrotcarrotcarro tcarrotcarrotcarrotcarrotcarrotcarrot"));
+//   answerForm.appendChild(createAnswerOption("apple", "B", "Apple"));
+//   answerForm.appendChild(createAnswerOption("potato", "C", "Potato"));
+//   answerForm.appendChild(createAnswerOption("broccoli", "D", "Broccoli"));
+//   answerForm.appendChild(createAnswerOption("steak", "E", "Steak"));
+//   answerForm.appendChild(checkButton);
+//   answerForm.appendChild(firstTagDiv);
+//   answerForm.appendChild(QuestionNote);
+
+//   // Set text content
+//   questionHeader.innerText = "1) Which of the following is a fruit?";
+//   classBlockName.innerText = "Surger";
+//   classSubjectName.innerText = "Fracture";
+//   classLectureName.innerText = "Last lecture";
+// }
+
+// function createAnswerOption(value, letter, text) {
+//   // Create elements
+//   const label = document.createElement("label");
+//   const input = document.createElement("input");
+//   const optionBorder = document.createElement("div");
+//   const span = document.createElement("span");
+
+//   // Set attributes and text content
+//   label.classList.add("answer-option");
+//   input.setAttribute("type", "radio");
+//   input.setAttribute("name", "fruit");
+//   input.setAttribute("value", value);
+//   input.setAttribute("onclick", "showColor(this)");
+//   optionBorder.classList.add("option-border");
+//   optionBorder.setAttribute("id", letter);
+//   span.classList.add("astyle");
+//   span.innerText = letter;
+
+//   // Append elements to the DOM
+//   label.appendChild(input);
+//   label.appendChild(optionBorder);
+//   optionBorder.appendChild(span);
+//   optionBorder.innerHTML += `&nbsp;&nbsp; ${text}`;
+
+//   return label;
+// }
+
+
+
+const menuToggle = document.getElementById('menu-toggle');
+const links = document.querySelector('.links');
+const searchIcon = document.querySelector('.search-icon');
+const searchInput = document.querySelector('.search-input');
+
+searchIcon.addEventListener('click', function() {
+  searchInput.style.display = 'block';
+});
+document.addEventListener("click", function(e) {
+  if (!searchInput.contains(e.target) && !searchIcon.contains(e.target) && e.target != searchIcon){
+    // console.log("Close search");
+  searchInput.style.display = "none";
+  }
+});
+
+document.addEventListener("click", function(event) {
+  if (event.target.closest(".links") === null && event.target.closest(".menu-toggle") === null && links.classList.contains("show-menu")) {
+    links.classList.remove("show-menu");
+  }
+});
+
+document.getElementById("menu-toggle").addEventListener("click", function() {
+  var links = document.querySelector(".links");
+  if (links.classList.contains("show-menu")) {
+    links.classList.remove("show-menu");
+  } else {
+    links.classList.add("show-menu");
+  }
+});
+
+// function showColor(selectedOption) {
+//   const answerOptions = document.getElementsByName('fruit');
+
+//   for (let i = 0; i < answerOptions.length; i++) {
+//     answerOptions[i].parentNode.classList.remove('selected-option');
+//   }
+
+//   selectedOption.parentNode.classList.add('selected-option');
+// }
+
+var reportBtn = document.getElementById('report-problem');
+  function reportform(){
+  console.log("report");
+  document.getElementById("report-form2").innerHTML = '<div id="report-form" style="background: #FFFFFF;box-shadow: 0px 4.82785px 38.6228px 10.8627px rgba(0, 0, 0, 0.17);border-radius: 14.4836px;"><h2 style="display: contents;">Report the question</h2><i style="padding:10px;"class="fa-regular fa-flag"></i><form action="upload_report.php" id="reportform3" name="myForm" onsubmit="return validateMyForm();"> <br> <br> ' +
+    ' <input type="radio" id="' + 2 + '" name="fav_language" value="qdms">' +
+    ' <label style="font-weight: 1000;font-size: 20px;" for="qdms">The question doesn\'t make sense</label><br><br> ' +
+      ' <input type="hidden" name="qdms" value="The question doesnt make sense">' +
+
+      ' <input type="radio" id="' + 3 + '" name="fav_language" value="nra">' +
+      ' <label style="font-weight: 1000;font-size: 20px;" for="nra">There is no right answer</label><br><br> ' +
+      ' <input type="hidden" name="nra" value="There is no right answer">' +
+
+      ' <input type="radio" id="' + 4 + '" name="fav_language" value="r2a">' +
+      ' <label style="font-weight: 1000;font-size: 20px;" for="r2a">There are 2 right answers</label> <br><br>   ' +
+      ' <input type="hidden" name="r2a" value="There are 2 right answers">' +
+
+
+      ' <input type="radio" id="' + 5 + '" name="fav_language" value="other">' +
+      ' <label style="font-weight: 1000;font-size: 20px;" for="other">Others</label> <br>   ' +
+      ' <input type="hidden" name="other" value="Others">' +
+
+      ' <input type="hidden" name="idofquestion" value=' + 6 + '>' +
+
+      '<textarea style="margin-top: 20px;border: none;background:#F5F5F5;width: 100%;height: 100px;font-weight: 300;font-size: 18px;line-height: 118%;color: #B9B9B9;" type="text" id="thetext" name="thetext" placeholder="Please select others to write your Report message."></textarea><br> ' +
+      '<button type="button" class="button" id="close-btn" style="color: black;font-weight: bold; float: left;border: 4.27079px solid rgba(0, 0, 0, 0.06);border-radius: 12.8124px;">Close</button>' +
+      '<input type="submit" class="button" style="color: black;font-weight: bold; float: right; background: #E1E448;border: 4.27079px solid rgba(0, 0, 0, 0.06);border-radius: 12.8124px;" value="Submit"> </form></div>';
+  var reportForm = document.getElementById('report-form');
+  var closeBtn = document.getElementById('close-btn'); // Get the close button element
+  closeBtn.addEventListener('click', function() {
+    // Hide the report form when close button is clicked
+    reportForm.style.display = 'none';
+  });
+}
+
+</script>
+      
+  </body>
